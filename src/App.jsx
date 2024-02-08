@@ -8,33 +8,6 @@ import clsx from "clsx";
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
 
-  useEffect(() => {
-    function handleLocationChange() {
-      switch (location.pathname) {
-        case "/products":
-          if (currentPage !== "products") {
-            setCurrentPage("products");
-          }
-          break;
-        case "/contact":
-          if (currentPage !== "contact") {
-            setCurrentPage("contact");
-          }
-          break;
-        default:
-          if (currentPage !== "home") {
-            setCurrentPage("home");
-          }
-          break;
-      }
-    }
-    handleLocationChange();
-    window.addEventListener("popstate", handleLocationChange);
-    return () => {
-      window.removeEventListener("popstate", handleLocationChange);
-    };
-  }, [currentPage]);
-
   return (
     <>
       <nav className={styles["main-nav"]}>
@@ -44,7 +17,6 @@ function App() {
             title="Home"
             onClick={() => {
               setCurrentPage("home");
-              history.pushState({}, "", "/home");
             }}
           >
             Home
@@ -53,7 +25,6 @@ function App() {
             className={clsx(currentPage === "products" && styles.active)}
             title="Products"
             onClick={() => {
-              history.pushState({}, "", "/products");
               setCurrentPage("products");
             }}
           >
@@ -63,7 +34,6 @@ function App() {
             className={clsx(currentPage === "contact" && styles.active)}
             title="Contact"
             onClick={() => {
-              history.pushState({}, "", "/contact");
               setCurrentPage("contact");
             }}
           >
