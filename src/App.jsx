@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "./App.module.css";
 import { Products } from "./components/Products";
 import { Home } from "./components/Home";
