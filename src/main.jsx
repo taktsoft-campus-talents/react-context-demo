@@ -7,6 +7,7 @@ import { Contact } from "./components/Contact.jsx";
 import { Products } from "./components/Products.jsx";
 import { RootLayout } from "./components/RootLayout.jsx";
 import { ProductDetails } from "./components/ProductDetails.jsx";
+import { UserProvider } from "./context/UserContext";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </React.StrictMode>
 );
