@@ -18,10 +18,10 @@
 }
 
 .main-nav ul li:hover,
-.active {
-  color: var(--color-primary);
-}
-
 .main-nav ul li:active {
   font-weight: bold;
+}
+
+.nav-active {
+  color: red;
 }
